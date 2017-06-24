@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 
 import com.inet.jortho.SpellChecker;
 
-public class inicio {
+public class ejemploCorreccion {
 
 	/**
 	 * @param args
