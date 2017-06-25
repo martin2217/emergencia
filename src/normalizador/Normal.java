@@ -7,13 +7,16 @@ import java.util.List;
 public class Normal {
 	private static HashMap<String,String> verbos;
 	private static HashMap<String,String> sinonimos;
+	private List<String> noIncluir;
 	
 	public Normal() {
 		verbos = new HashMap<String,String>();
-	     sinonimos = new HashMap<String,String>();
-	     cargarVerbos();
-	     cargarSinonimos();
-
+	    sinonimos = new HashMap<String,String>();
+	    noIncluir = new ArrayList<String>();
+	    
+	    cargarVerbos();
+	    cargarSinonimos();
+        cargarNoIncluir();
 	}
 
 	 private void cargarVerbos(){
@@ -71,6 +74,7 @@ public class Normal {
 	    	verbos.put("ayudame", "ayudar");
 	    	verbos.put("ayuda", "ayudar");
 	    	verbos.put("ayudanos", "ayudar");
+	    	verbos.put("ayudenme", "ayudar");
 	    }
 	    
 	    private void cargarSinonimos(){
@@ -87,7 +91,34 @@ public class Normal {
 	    	sinonimos.put("comercio", "negocio");
 	    	sinonimos.put("chumbo", "disparar");
 	    	sinonimos.put("celu", "celular");
-	    	
+	    	sinonimos.put("cuchillo", "arma");
+	    	sinonimos.put("revolver", "arma");
+	    	sinonimos.put("pistola", "arma");
+	    }
+	    
+	    private void cargarNoIncluir(){
+	    	noIncluir.add("en");
+	    	noIncluir.add("ante");
+	    	noIncluir.add("con");
+	    	noIncluir.add("contra");
+	    	noIncluir.add("de");
+	    	noIncluir.add("desde");
+	    	noIncluir.add("hacia");
+	    	noIncluir.add("hasta");
+	    	noIncluir.add("para");
+	    	noIncluir.add("por");
+	    	noIncluir.add("sin");
+	    	noIncluir.add("sobre");
+	    	noIncluir.add("tras");
+	    	noIncluir.add("un");
+	    	noIncluir.add("me");
+	    	noIncluir.add("te");
+	    	noIncluir.add("la");
+	    	noIncluir.add("las");
+	    	noIncluir.add("el");
+	    	noIncluir.add("los");
+	    	noIncluir.add("se");
+	    	noIncluir.add("si");
 	    }
 	    
 		public List<String> fraseNormalizada(String frase){
@@ -106,9 +137,12 @@ public class Normal {
 		        		if(sinonimos.containsKey(palabrasSeparadas[i].toLowerCase())){
 		        		fraseNormalizada.add(sinonimos.get(palabrasSeparadas[i].toLowerCase()));
 		        		}	
-		        		//Por defecto agrega la palabra en minuscula
+		        		//Por defecto agrega la palabra en minuscula si no esta en la lista de no incluir
 		        		else{
-		        			fraseNormalizada.add(palabrasSeparadas[i].toLowerCase());
+		        			if(noIncluir.contains(palabrasSeparadas[i].toLowerCase())){
+		        				fraseNormalizada.add(palabrasSeparadas[i].toLowerCase());
+		        			}
+		        			
 		        			}
 		        		}
 		        }
