@@ -3,15 +3,23 @@ package correccion;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
-public class Util {
+import normalizador.Normal;
 
-	public static String corregir1(String cadena) {
+public class Util {
+	
+	private static Normal normalizador;
+	private static JazzySpellChecker corrector;
+
+	public static String corregir1(String cadena,
+			Normal normalizador, JazzySpellChecker corrector) {
+		
 		String aux = cadena;
 
-		// Eliminación de acentos
-		aux = reemplazarAcentos(aux);
+		// Eliminación de acentos - Previamente hecho
+		//aux = reemplazarAcentos(aux);
 
 		// TODO Agregar - normalizacion (plurales a singular, infinitivos)
 		// normalizar -> corregir -> separar ( corregir 1 )
@@ -20,18 +28,39 @@ public class Util {
 		// en un set ingresar todas las palabras de ambos caminos..
 
 		// Corrección ortográfica
-		JazzySpellChecker corrector = new JazzySpellChecker();
 		aux = corrector.getCorrectedText(aux);
 		
 		return aux;
 	}
 	
-	public static ArrayList<String> listaPalabras(String cadena){
+	// No usado
+	public static String corregir2(String cadena,
+			Normal normalizador, JazzySpellChecker corrector) {
+		
+		String aux = cadena;
+		
+		// Corrección ortográfica
+		aux = corrector.getCorrectedText(aux);
+		
+		// Normalizacion
+		//aux = normalizador.fraseNormalizada(aux);
+		
+		return aux;
+	}
+	
+	public static ArrayList<String> listaPalabras(String cadena,
+			Normal normalizador, JazzySpellChecker corrector){
+		
 		Set<String> aux = new LinkedHashSet<String>();
+		String cadenaAux = reemplazarAcentos(cadena);
+		cadenaAux= cadenaAux.toLowerCase();
 		
-		aux.addAll(separarPalabras(corregir1(cadena)));
-		//aux.addAll(separarPalabras(corregir2(cadena)));
+		List<String> aux0 =normalizador.normalizar(corregir1(cadenaAux, normalizador, corrector));
+		List<String> aux1 =separarPalabras(corregir1(cadenaAux, normalizador, corrector));
+		List<String> aux2 =normalizador.normalizar(cadenaAux);
 		
+		aux.addAll(aux1);
+		aux.addAll(aux2);
 		
 		return new ArrayList<String>(aux);
 	}
@@ -43,6 +72,11 @@ public class Util {
 		aux=aux.replace("í", "i");
 		aux=aux.replace("ó", "o");
 		aux=aux.replace("ú", "u");
+		aux=aux.replace("Á", "A");
+		aux=aux.replace("É", "E");
+		aux=aux.replace("Í", "I");
+		aux=aux.replace("Ó", "O");
+		aux=aux.replace("Ú", "U");
 		return aux;
 	}
 
