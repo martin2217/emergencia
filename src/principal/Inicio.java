@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -19,17 +21,25 @@ import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import correccion.JazzySpellChecker;
+import correccion.Util;
+
 import normalizador.Normal;
 
 public class Inicio {
 	
 	private static JFrame framePrincipal;
-	private static Normal normalizador = new Normal();
+	private static Normal normalizador;
+	private static JazzySpellChecker corrector;
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
        
+		normalizador = new Normal();
+		corrector = new JazzySpellChecker();
+		
+		
 		framePrincipal = new JFrame("Emergencia");
 
 		framePrincipal.setLayout(new BorderLayout());
@@ -55,14 +65,20 @@ public class Inicio {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 					// TODO Agregar - Tomar el texto y enviarlo a ser reconocido
 					String ingreso= ingresoTexto.getText().trim();
+					List<String> listaPalabras;
 					if(!ingreso.equals("")){
-						                 
-						normalizador.fraseNormalizada(ingreso);
+						      
+						// Revisar correctitud
 						// Pasar el string a lista de palabras
 						// Normalizar las palabras (plurales a singular, infinitivo)
 						// Por cada palabra, buscarla en el HashMap, y sacar el valor
 						// Agregar a la memoria de palabras reconocidas (MT)
 						// Ejecutar la maquina de inferencia
+						
+						normalizador.normalizar(ingreso);
+						listaPalabras = Util.listaPalabras(ingreso, normalizador, corrector);
+						// TODO Por cada palabra buscada, agregar a MT
+						// TODO Ejecutar la Maquina de Inferencia
 					}
 					e.consume();
 				}
