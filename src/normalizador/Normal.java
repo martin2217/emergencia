@@ -139,7 +139,7 @@ public class Normal {
 		        		}	
 		        		//Por defecto agrega la palabra en minuscula si no esta en la lista de no incluir
 		        		else{
-		        			if(noIncluir.contains(palabrasSeparadas[i].toLowerCase())){
+		        			if(!noIncluir.contains(palabrasSeparadas[i].toLowerCase())){
 		        				fraseNormalizada.add(palabrasSeparadas[i].toLowerCase());
 		        			}
 		        			
