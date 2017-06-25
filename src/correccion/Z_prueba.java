@@ -12,7 +12,7 @@ import com.inet.jortho.WordIterator;
 
 
 
-public class prueba extends JApplet {
+public class Z_prueba extends JApplet {
     @Override
     public void start() {
  

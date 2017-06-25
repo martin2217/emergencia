@@ -57,7 +57,7 @@ public class Inicio {
 						// Pasar el string a lista de palabras
 						// Normalizar las palabras (plurales a singular, infinitivo)
 						// Por cada palabra, buscarla en el HashMap, y sacar el valor
-						// Agregar a la memoria de palabras reconocidas
+						// Agregar a la memoria de palabras reconocidas (MT)
 						// Ejecutar la maquina de inferencia
 					}
 					e.consume();

@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author Jason Height (jheight@chariot.net.au)
  */
-public class SpellCheckExample implements SpellCheckListener {
+public class Z_SpellCheckExample implements SpellCheckListener {
 
   private static String dictFile = "dict/english.0";
   private static String phonetFile = "dict/phonet.en";
@@ -25,7 +25,7 @@ public class SpellCheckExample implements SpellCheckListener {
   private SpellChecker spellCheck = null;
 
 
-  public SpellCheckExample() {
+  public Z_SpellCheckExample() {
     try {
       SpellDictionary dictionary = new SpellDictionaryHashMap(new File(dictFile), new File(phonetFile));
 
@@ -61,6 +61,6 @@ public class SpellCheckExample implements SpellCheckListener {
   }
 
   public static void main(String[] args) {
-    new SpellCheckExample();
+    new Z_SpellCheckExample();
   }
 }
