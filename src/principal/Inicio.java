@@ -19,15 +19,17 @@ import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import normalizador.Normal;
+
 public class Inicio {
 	
 	private static JFrame framePrincipal;
-	
+	private static Normal normalizador = new Normal();
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
+       
 		framePrincipal = new JFrame("Emergencia");
 
 		framePrincipal.setLayout(new BorderLayout());
@@ -54,6 +56,8 @@ public class Inicio {
 					// TODO Agregar - Tomar el texto y enviarlo a ser reconocido
 					String ingreso= ingresoTexto.getText().trim();
 					if(!ingreso.equals("")){
+						                 
+						normalizador.fraseNormalizada(ingreso);
 						// Pasar el string a lista de palabras
 						// Normalizar las palabras (plurales a singular, infinitivo)
 						// Por cada palabra, buscarla en el HashMap, y sacar el valor
