@@ -31,9 +31,11 @@ import normalizador.Normal;
 public class Inicio {
 	
 	private static JFrame framePrincipal;
+	private static JTextPane panelTextoMemoria;
 	private static Normal normalizador;
 	private static JazzySpellChecker corrector;
 	private static MaquinaDeInferencia maquinaInferencia;
+	
 	
 	/**
 	 * @param args
@@ -89,6 +91,9 @@ public class Inicio {
 						// Por cada palabra buscada, agregar a MT
 						maquinaInferencia.addPalabras(listaPalabras);
 						
+						// Mostrar la actualización de palabras encontradas
+						panelTextoMemoria.setText(maquinaInferencia.palabrasEncontradas());
+						
 						// TODO Ejecutar la Maquina de Inferencia
 						maquinaInferencia.ejecutar();
 					}
@@ -123,7 +128,7 @@ public class Inicio {
 		JLabel labelMemoria = new JLabel("Palabras reconocidas");
 		panelCenter.add(labelMemoria, BorderLayout.NORTH);
 
-		final JTextPane panelTextoMemoria = new JTextPane();
+		panelTextoMemoria = new JTextPane();
 		panelTextoMemoria.setBorder(BorderFactory.createCompoundBorder(
 				new LineBorder(Color.LIGHT_GRAY, 2), new EmptyBorder(5, 5, 5, 5)));
 		panelTextoMemoria.setEditable(false);

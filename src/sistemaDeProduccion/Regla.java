@@ -2,6 +2,7 @@ package sistemaDeProduccion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Set;
 
 public class Regla {
 	
@@ -15,10 +16,19 @@ public class Regla {
 		this.numero=numero;
 	}
 	
-	public boolean Match(){
-		return false;
+	public boolean match(Set<String> palabrasEncontradas){
+		int cantMatcheos=0;
+		for(String palabra: palabras){
+			if(palabrasEncontradas.contains(palabra)){
+				cantMatcheos++;
+			}
+		}
+		// Si la cantidad de matcheos coincide con la cantidad de palabras que tiene le regla
+		return cantMatcheos >= palabras.size(); //>= por si hay palabras repetidas en la regla
 	}
-	public void Ejecutar(){
+	public void ejecutar(){
+		// TODO completar la accion a ejecutar
+		System.out.println("Regla ejecutada: "+ nombre);
 	}
 	
 	public static ArrayList<Regla> inicializarReglas(){
