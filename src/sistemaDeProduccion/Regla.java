@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
 
-public class Regla {
+import principal.Inicio;
+
+public class Regla implements Comparable{
 	
 	public ArrayList<String> palabras;
 	public String nombre;
@@ -30,8 +32,8 @@ public class Regla {
 	}
 	
 	public void ejecutar(){
-		// TODO completar la accion a ejecutar
-		System.out.println("Regla ejecutada: "+ toString());
+		Inicio.ejecutarRegla(this);
+		//System.out.println("Regla ejecutada: "+ toString());
 	}
 	public String toString(){
 		String tipoString="";
@@ -53,8 +55,16 @@ public class Regla {
 		return nombre+" - "+tipoString;
 	}
 	
+	@Override
+	public int compareTo(Object arg0) {
+		Regla reglaComparada = (Regla) arg0;
+		return reglaComparada.palabras.size()-this.palabras.size();
+	}
+	
 	public static ArrayList<Regla> inicializarReglas(){
 		ArrayList<Regla> retorno = new ArrayList<Regla>();
+		String accion;
+		
 		//Hechos delictivos Callejeros
 		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("ayudar", "robar")),"R1", 1, 1));
 		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("socorro", "ladron")),"R2", 2, 1));

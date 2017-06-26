@@ -14,7 +14,7 @@ public class ejemploCorreccion {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void prueba() {
 		String cadena1= "te vóy a matarr!!! había una vez un pequeñoo";
 		String cadena2= "dame todaa la plataa, me esta pegandoo!";
 		String cadena3= "me quiere robarr!";

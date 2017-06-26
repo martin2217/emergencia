@@ -1,6 +1,7 @@
 package sistemaDeProduccion;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -15,7 +16,7 @@ public class BaseDeConocimientos {
 	// Memoria de producciones
 	public HashMap<String, String> palabrasAEncontrar;
 	public ArrayList<Regla> reglas;
-	// TODO inicializar con las palabras de las reglas
+	
 	
 	public BaseDeConocimientos(){
 		inicializar();
@@ -28,6 +29,7 @@ public class BaseDeConocimientos {
 		// TODO Palabras a matchear - COMPLETAR
 		palabrasAEncontrar= new LinkedHashMap<String, String>();
 		reglas=Regla.inicializarReglas();
+		Collections.sort(reglas);
 		cargarPalabrasAEncontrar();
 	}
 	public void reiniciar(){
@@ -50,10 +52,13 @@ public class BaseDeConocimientos {
 	}
 	public String stringPalabrasEncontradas(){
 		String retorno="";
+		boolean ingreso=false;
 		for(String palabra: palabrasEncontradas){
+			ingreso=true;
 			retorno+=palabra+" - ";
 		}
-		retorno=retorno.substring(0, retorno.length()-3);
+		if (ingreso)
+			retorno=retorno.substring(0, retorno.length()-3);
 		return retorno;
 	}
 	
@@ -68,6 +73,8 @@ public class BaseDeConocimientos {
 		palabrasAEncontrar.put("robo", "robar");
 		palabrasAEncontrar.put("robó", "robar");
 		palabrasAEncontrar.put("robar", "robar");
+		palabrasAEncontrar.put("robando", "robar");
+		palabrasAEncontrar.put("robamos", "robar");
 		palabrasAEncontrar.put("abrí", "abrir");
 		palabrasAEncontrar.put("abrime", "abrir");
 		palabrasAEncontrar.put("abrir", "abrir");

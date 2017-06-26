@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -16,12 +17,15 @@ import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import sistemaDeProduccion.MaquinaDeInferencia;
+import sistemaDeProduccion.Regla;
 
 import correccion.JazzySpellChecker;
 import correccion.Util;
@@ -36,6 +40,8 @@ public class Inicio {
 	private static JazzySpellChecker corrector;
 	private static MaquinaDeInferencia maquinaInferencia;
 	
+	private static final Logger LOGGER = Logger.getLogger(Logger.class.getName());
+	final static JTextArea log = new JTextArea(14,20);
 	
 	/**
 	 * @param args
@@ -49,18 +55,53 @@ public class Inicio {
 		framePrincipal = new JFrame("Emergencia");
 
 		framePrincipal.setLayout(new BorderLayout());
-		framePrincipal.setMinimumSize(new Dimension(700, 400));
-		framePrincipal.setPreferredSize(new Dimension(700, 400));
-		framePrincipal.setSize(new Dimension(700, 400));
+		framePrincipal.setMinimumSize(new Dimension(800, 400));
+		framePrincipal.setPreferredSize(new Dimension(800, 400));
+		framePrincipal.setSize(new Dimension(800, 400));
 		framePrincipal.setLayout(new BorderLayout());
-
+		
+		JPanel panelPadre = new JPanel(new BorderLayout());
+		panelPadre.setMinimumSize(new Dimension(800, 300));
+		panelPadre.setMaximumSize(new Dimension(800, 300));
+		panelPadre.setPreferredSize(new Dimension(800, 300));
+		panelPadre.setSize(new Dimension(800, 300));
+		framePrincipal.add(panelPadre, BorderLayout.NORTH);
+		
+		JPanel panelIzquierdo = new JPanel(new BorderLayout());
+		panelIzquierdo.setMinimumSize(new Dimension(400, 150));
+		panelIzquierdo.setMaximumSize(new Dimension(400, 150));
+		panelIzquierdo.setPreferredSize(new Dimension(400, 150));
+		panelIzquierdo.setSize(new Dimension(400, 150));
+		panelPadre.add(panelIzquierdo, BorderLayout.WEST);
+		
+		// Logger
+		JPanel panelDerecho = new JPanel(new BorderLayout());
+		panelDerecho.setMinimumSize(new Dimension(350, 150));
+		panelDerecho.setMaximumSize(new Dimension(350, 150));
+		panelDerecho.setPreferredSize(new Dimension(350, 150));
+		panelDerecho.setSize(new Dimension(350, 150));
+		panelDerecho.setBorder(new EmptyBorder(30, 0, 20, 30));
+		panelPadre.add(panelDerecho, BorderLayout.EAST);
+		
+		// Logger
+        final JScrollPane scroll = new JScrollPane(log);
+        panelDerecho.add(scroll);
+        log.setBorder(new EmptyBorder(5, 5, 10, 5));
+        log.setWrapStyleWord(true);
+        log.setLineWrap(true);
+        log.setEditable(false);
+        
+        JLabel labelLog = new JLabel("Log");
+		panelDerecho.add(labelLog, BorderLayout.NORTH);
+        
+		
 		JPanel panelTop = new JPanel(new BorderLayout());
 		panelTop.setMinimumSize(new Dimension(400, 150));
 		panelTop.setMaximumSize(new Dimension(400, 150));
 		panelTop.setPreferredSize(new Dimension(400, 150));
 		panelTop.setSize(new Dimension(400, 150));
 		panelTop.setBorder(new EmptyBorder(30, 30, 20, 30));
-		framePrincipal.add(panelTop, BorderLayout.NORTH);
+		panelIzquierdo.add(panelTop, BorderLayout.NORTH);
 		
 		final JTextPane ingresoTexto = new JTextPane();
 		ingresoTexto.setBorder(BorderFactory.createCompoundBorder(
@@ -94,7 +135,7 @@ public class Inicio {
 						// Mostrar la actualización de palabras encontradas
 						panelTextoMemoria.setText(maquinaInferencia.palabrasEncontradas());
 						
-						// TODO Ejecutar la Maquina de Inferencia
+						// Ejecutar la Maquina de Inferencia
 						maquinaInferencia.ejecutar();
 					}
 					e.consume();
@@ -115,12 +156,12 @@ public class Inicio {
 		panelTop.add(labelIngreso, BorderLayout.NORTH);
 
 		JPanel panelCenter = new JPanel(new BorderLayout());
-		panelCenter.setMinimumSize(new Dimension(400, 100));
-		panelCenter.setMaximumSize(new Dimension(400, 100));
-		panelCenter.setPreferredSize(new Dimension(400, 100));
-		panelCenter.setSize(new Dimension(400, 100));
+		panelCenter.setMinimumSize(new Dimension(400, 150));
+		panelCenter.setMaximumSize(new Dimension(400, 150));
+		panelCenter.setPreferredSize(new Dimension(400, 150));
+		panelCenter.setSize(new Dimension(400, 150));
 		panelCenter.setBorder(new EmptyBorder(15, 30, 20, 30));
-		framePrincipal.add(panelCenter, BorderLayout.CENTER);
+		panelIzquierdo.add(panelCenter, BorderLayout.SOUTH);
 
 		//JPanel panelMemoria = new JPanel(new BorderLayout());
 		//panelCenter.add(panelMemoria, BorderLayout.NORTH);
@@ -143,7 +184,7 @@ public class Inicio {
 		panelBot.setMaximumSize(new Dimension(300, 60));
 		panelBot.setPreferredSize(new Dimension(300, 60));
 		panelBot.setSize(new Dimension(300, 60));
-		panelBot.setBorder(new EmptyBorder(10, 100, 20, 100));
+		panelBot.setBorder(new EmptyBorder(10, 200, 20, 200));
 		framePrincipal.add(panelBot, BorderLayout.SOUTH);
 
 		JButton btnEjecutar = new JButton("Reiniciar");
@@ -164,4 +205,15 @@ public class Inicio {
 		framePrincipal.setLocationRelativeTo(null);
 		framePrincipal.setVisible(true);
 	}
+	
+	public static void ejecutarRegla(Regla regla){
+		log("Regla ejecutada: "+ regla.toString());
+	}
+	
+	public static void log(String cadena){
+		String aux = log.getText();
+		aux = aux+cadena+" .-\n";
+		log.setText(aux);
+		}
+	
 }
