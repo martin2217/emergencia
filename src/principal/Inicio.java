@@ -85,7 +85,7 @@ public class Inicio {
 						// Limpieza del texto
 						ingresoTexto.setText("");
 						
-						normalizador.normalizar(ingreso);
+						//normalizador.normalizar(ingreso);
 						listaPalabras = Util.listaPalabras(ingreso, normalizador, corrector);
 						
 						// Por cada palabra buscada, agregar a MT
@@ -125,7 +125,7 @@ public class Inicio {
 		//JPanel panelMemoria = new JPanel(new BorderLayout());
 		//panelCenter.add(panelMemoria, BorderLayout.NORTH);
 
-		JLabel labelMemoria = new JLabel("Palabras reconocidas");
+		JLabel labelMemoria = new JLabel("Palabras claves reconocidas");
 		panelCenter.add(labelMemoria, BorderLayout.NORTH);
 
 		panelTextoMemoria = new JTextPane();
@@ -134,7 +134,7 @@ public class Inicio {
 		panelTextoMemoria.setEditable(false);
 		panelTextoMemoria.setBackground(framePrincipal.getBackground());
 		panelTextoMemoria.setForeground(Color.DARK_GRAY);
-		panelTextoMemoria.setText("casa");
+		panelTextoMemoria.setText("");
 		panelCenter.add(panelTextoMemoria, BorderLayout.CENTER);
 		maquinaInferencia.setPanelMemoria(panelTextoMemoria);
 

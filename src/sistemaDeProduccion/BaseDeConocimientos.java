@@ -51,8 +51,9 @@ public class BaseDeConocimientos {
 	public String stringPalabrasEncontradas(){
 		String retorno="";
 		for(String palabra: palabrasEncontradas){
-			retorno+=palabra+" ";
+			retorno+=palabra+" - ";
 		}
+		retorno=retorno.substring(0, retorno.length()-3);
 		return retorno;
 	}
 	
