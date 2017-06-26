@@ -26,6 +26,7 @@ public class Regla {
 		// Si la cantidad de matcheos coincide con la cantidad de palabras que tiene le regla
 		return cantMatcheos >= palabras.size(); //>= por si hay palabras repetidas en la regla
 	}
+	
 	public void ejecutar(){
 		// TODO completar la accion a ejecutar
 		System.out.println("Regla ejecutada: "+ nombre);
