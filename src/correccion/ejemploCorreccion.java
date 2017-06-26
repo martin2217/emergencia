@@ -38,8 +38,8 @@ public class ejemploCorreccion {
 		aux=Util.separarPalabras(cadena2);
 		aux=Util.separarPalabras(cadena3);
 		
-		System.out.println ("Cadenas ya corregidas: " + cadena1 +
-				", "+cadena2+ ", "+ cadena3);
+		System.out.println ("Cadenas ya corregidas: " + aux2 +
+				", "+aux3+ ", "+ cadena3);
 		
 		
 	}

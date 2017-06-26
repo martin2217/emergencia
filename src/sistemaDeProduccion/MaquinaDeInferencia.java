@@ -1,8 +1,14 @@
 package sistemaDeProduccion;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JTextPane;
+
 public class MaquinaDeInferencia {
 	
 	private BaseDeConocimientos memoria;
+	public JTextPane panelMemoria;
 	
 	public MaquinaDeInferencia(){
 		memoria= new BaseDeConocimientos();
@@ -20,5 +26,15 @@ public class MaquinaDeInferencia {
 		// ejecuta la regla (agregaría un alerta o accion final)
 		
 		// Devolvería algo si se ejecutó un alerta o accion final
+		
+		
+		panelMemoria.setText(memoria.stringPalabrasEncontradas());
+	}
+	
+	public void addPalabras(ArrayList<String> palabras){
+		memoria.addPalabras(palabras);
+	}
+	public void setPanelMemoria(JTextPane panelMemoria){
+		this.panelMemoria=panelMemoria;
 	}
 }

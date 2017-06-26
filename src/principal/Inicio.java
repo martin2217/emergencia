@@ -21,6 +21,8 @@ import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import sistemaDeProduccion.MaquinaDeInferencia;
+
 import correccion.JazzySpellChecker;
 import correccion.Util;
 
@@ -31,6 +33,8 @@ public class Inicio {
 	private static JFrame framePrincipal;
 	private static Normal normalizador;
 	private static JazzySpellChecker corrector;
+	private static MaquinaDeInferencia maquinaInferencia;
+	
 	/**
 	 * @param args
 	 */
@@ -38,7 +42,7 @@ public class Inicio {
        
 		normalizador = new Normal();
 		corrector = new JazzySpellChecker();
-		
+		maquinaInferencia = new MaquinaDeInferencia();
 		
 		framePrincipal = new JFrame("Emergencia");
 
@@ -63,9 +67,9 @@ public class Inicio {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					// TODO Agregar - Tomar el texto y enviarlo a ser reconocido
+					// Tomar el texto y enviarlo a ser reconocido
 					String ingreso= ingresoTexto.getText().trim();
-					List<String> listaPalabras;
+					ArrayList<String> listaPalabras;
 					if(!ingreso.equals("")){
 						      
 						// Revisar correctitud
@@ -75,10 +79,18 @@ public class Inicio {
 						// Agregar a la memoria de palabras reconocidas (MT)
 						// Ejecutar la maquina de inferencia
 						
+						
+						// Limpieza del texto
+						ingresoTexto.setText("");
+						
 						normalizador.normalizar(ingreso);
 						listaPalabras = Util.listaPalabras(ingreso, normalizador, corrector);
-						// TODO Por cada palabra buscada, agregar a MT
+						
+						// Por cada palabra buscada, agregar a MT
+						maquinaInferencia.addPalabras(listaPalabras);
+						
 						// TODO Ejecutar la Maquina de Inferencia
+						maquinaInferencia.ejecutar();
 					}
 					e.consume();
 				}
@@ -111,7 +123,7 @@ public class Inicio {
 		JLabel labelMemoria = new JLabel("Palabras reconocidas");
 		panelCenter.add(labelMemoria, BorderLayout.NORTH);
 
-		JTextPane panelTextoMemoria = new JTextPane();
+		final JTextPane panelTextoMemoria = new JTextPane();
 		panelTextoMemoria.setBorder(BorderFactory.createCompoundBorder(
 				new LineBorder(Color.LIGHT_GRAY, 2), new EmptyBorder(5, 5, 5, 5)));
 		panelTextoMemoria.setEditable(false);
@@ -119,6 +131,7 @@ public class Inicio {
 		panelTextoMemoria.setForeground(Color.DARK_GRAY);
 		panelTextoMemoria.setText("casa");
 		panelCenter.add(panelTextoMemoria, BorderLayout.CENTER);
+		maquinaInferencia.setPanelMemoria(panelTextoMemoria);
 
 		JPanel panelBot = new JPanel(new BorderLayout());
 		panelBot.setMinimumSize(new Dimension(300, 60));
@@ -132,9 +145,10 @@ public class Inicio {
 		btnEjecutar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Agregar - Limpiar memoria y areas de texto
-				if (!ingresoTexto.getText().trim().equals("")) {
-				}
+				// Limpiar memoria y areas de texto
+				maquinaInferencia.reiniciar();
+				panelTextoMemoria.setText("");
+				ingresoTexto.setText("");
 			}
 		});
 
