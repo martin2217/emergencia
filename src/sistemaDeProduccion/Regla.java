@@ -19,6 +19,7 @@ public class Regla {
 		return false;
 	}
 	public void Ejecutar(){
+		
 	}
 	
 	public static ArrayList<Regla> inicializarReglas(){
