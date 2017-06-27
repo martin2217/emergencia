@@ -65,6 +65,7 @@ public class BaseDeConocimientos {
 	private void cargarPalabrasAEncontrar(){
 		palabrasAEncontrar.put("dame", "dar");
 		palabrasAEncontrar.put("dar", "dar");
+		palabrasAEncontrar.put("doy", "dar");
 		palabrasAEncontrar.put("llevame", "llevar");
 		palabrasAEncontrar.put("llevan", "llevar");
 		palabrasAEncontrar.put("llevar", "llevar");
@@ -76,6 +77,7 @@ public class BaseDeConocimientos {
 		palabrasAEncontrar.put("robando", "robar");
 		palabrasAEncontrar.put("robamos", "robar");
 		palabrasAEncontrar.put("abrí", "abrir");
+		palabrasAEncontrar.put("abre", "abrir");
 		palabrasAEncontrar.put("abrime", "abrir");
 		palabrasAEncontrar.put("abrir", "abrir");
 		palabrasAEncontrar.put("hay", "haber");
@@ -86,8 +88,13 @@ public class BaseDeConocimientos {
 		palabrasAEncontrar.put("tiene", "tener");
 		palabrasAEncontrar.put("tienen", "tener");
 		palabrasAEncontrar.put("tener", "tener");
+		palabrasAEncontrar.put("tengo", "tener");
+		palabrasAEncontrar.put("tienes", "tener");
 		palabrasAEncontrar.put("sos", "ser");
 		palabrasAEncontrar.put("ser", "ser");
+		palabrasAEncontrar.put("soy", "ser");
+		palabrasAEncontrar.put("eres", "ser");
+		palabrasAEncontrar.put("es", "ser");
 		palabrasAEncontrar.put("pegues", "pegar");
 		palabrasAEncontrar.put("pega", "pegar");
 		palabrasAEncontrar.put("pegar", "pegar");
@@ -129,6 +136,7 @@ public class BaseDeConocimientos {
 		palabrasAEncontrar.put("quemó", "quemar");
 		palabrasAEncontrar.put("quemar", "quemar");
 		palabrasAEncontrar.put("está", "estar");
+		palabrasAEncontrar.put("esta", "estar");
 		palabrasAEncontrar.put("están", "estar");
 		palabrasAEncontrar.put("estar", "estar");
 		palabrasAEncontrar.put("secuestra", "secuestrar");
@@ -149,6 +157,8 @@ public class BaseDeConocimientos {
 		palabrasAEncontrar.put("auto", "vehiculo");
 		palabrasAEncontrar.put("camioneta", "vehiculo");
 		palabrasAEncontrar.put("vehiculo", "vehiculo");
+		palabrasAEncontrar.put("coche", "vehiculo");
+		palabrasAEncontrar.put("automovil", "vehiculo");
 		palabrasAEncontrar.put("asesinar", "matar");
 		palabrasAEncontrar.put("boleta", "matar");
 		palabrasAEncontrar.put("matar", "matar");
@@ -181,12 +191,26 @@ public class BaseDeConocimientos {
 		palabrasAEncontrar.put("no", "no");
 		palabrasAEncontrar.put("fuego", "fuego");
 		palabrasAEncontrar.put("acido", "acido");
-		palabrasAEncontrar.put("ayuda", "ayuda");
 		palabrasAEncontrar.put("loco", "loco");
+		palabrasAEncontrar.put("locos", "loco");
 		palabrasAEncontrar.put("incendio", "incendio");
 		palabrasAEncontrar.put("terremoto", "terremoto");
 		palabrasAEncontrar.put("tiro", "disparo");
 		palabrasAEncontrar.put("disparo", "disparo");
+		palabrasAEncontrar.put("bomba", "arma");
+		palabrasAEncontrar.put("escopeta", "arma");
+		palabrasAEncontrar.put("bajate", "bajar");
+		palabrasAEncontrar.put("baja", "bajar");
+		palabrasAEncontrar.put("bajar", "bajar");
+		palabrasAEncontrar.put("hago", "hacer");
+		palabrasAEncontrar.put("hacemos", "hacer");
+		palabrasAEncontrar.put("pistolas", "arma");
+		palabrasAEncontrar.put("pegando", "pegar");
+		palabrasAEncontrar.put("golpeando", "golpear");
+		palabrasAEncontrar.put("temblor", "terremoto");
+		palabrasAEncontrar.put("maremoto", "terremoto");
+		palabrasAEncontrar.put("sismo", "terremoto");
+		palabrasAEncontrar.put("incendia", "quemar");
 	}
 	
 }

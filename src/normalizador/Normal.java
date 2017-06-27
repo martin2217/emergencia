@@ -35,8 +35,12 @@ public class Normal {
 		verbos.put("decí", "hablar");
 		verbos.put("tiene", "tener");
 		verbos.put("tienen", "tener");
+		verbos.put("tengo", "tener");
+		verbos.put("tenemos", "tener");
 		verbos.put("sos", "ser");
+		verbos.put("soy", "ser");
 		verbos.put("son", "ser");
+		verbos.put("es", "ser");
 		verbos.put("pegues", "pegar");
 		verbos.put("pega", "pegar");
 		verbos.put("lastimes", "lastimar");
@@ -94,6 +98,8 @@ public class Normal {
 		sinonimos.put("cuchillo", "arma");
 		sinonimos.put("revolver", "arma");
 		sinonimos.put("pistola", "arma");
+		sinonimos.put("bomba", "arma");
+		sinonimos.put("escopeta", "arma");
 	}
 
 	private void cargarNoIncluir() {
