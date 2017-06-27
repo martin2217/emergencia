@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
@@ -211,8 +212,11 @@ public class Inicio {
 		log("Regla ejecutada: "+ regla.toString());
 		String nodoPatrullero = "1";
 		String nodoIncidente = "21";
+		
 		// Sacar comentario para conexión con TP1
-		//PatrulleroAgenteMain.ejecutarTP2(nodoPatrullero, nodoIncidente);
+		if(regla.accion.equals(regla.LLAMAR_911)){
+			PatrulleroAgenteMain.ejecutarTP2(nodoPatrullero, nodoIncidente);
+		}
 	}
 	
 	public static void log(String cadena){

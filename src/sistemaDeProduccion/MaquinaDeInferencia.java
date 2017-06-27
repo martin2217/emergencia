@@ -32,9 +32,9 @@ public class MaquinaDeInferencia {
 			// ejecuta la regla (agregaría un alerta o accion final)
 			reglaAEjecutar.ejecutar();
 			
-			// Agrega la regla como ejecutada y la acción realizada
+			// Agrega la regla como ejecutada --------y la acción realizada
 			memoria.reglasActivadas.add(reglaAEjecutar);
-			memoria.accionesRealizadas.add(reglaAEjecutar.accion);
+			//memoria.accionesRealizadas.add(reglaAEjecutar.accion);
 		}
 		//NO panelMemoria.setText(memoria.stringPalabrasEncontradas());
 	}
