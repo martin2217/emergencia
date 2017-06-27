@@ -14,7 +14,17 @@ public class Regla implements Comparable{
 	public int numero;
 	public int tipo;
 	
-	public Regla(ArrayList<String> palabras, String nombre,String accion, int numero, int tipo){
+	static final String GPS = "Activar GPS";
+	static final String LLAMAR_FAM = "Llamar a familiar";
+	static final String GRABAR = "Activar micrófono";
+	
+	static final String LLAMAR_911 = "Llamar al 911";
+	static final String GENERAR_AUDIO = "Activar GPS";
+	static final String ALARMA_VECINAL = "Activar alarma vecinal";
+	
+	static final String LLAMAR_BOMB = "Llamar a los bomberos";
+	
+	public Regla(ArrayList<String> palabras, String nombre, String accion, int numero, int tipo){
 		this.palabras=palabras;
 		this.nombre=nombre;
 		this.accion=accion;
@@ -68,19 +78,39 @@ public class Regla implements Comparable{
 		String accion;
 		
 		//Hechos delictivos Callejeros
-		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("ayudar", "robar")),"R1","Abrir audio", 1, 1));
-		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("socorro", "ladron")),"R2","Llamar familiar", 2, 1));
-		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("auxilio", "secuestrar")),"R3","Activar GPS", 3, 1));
-		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "billetera")),"R4","Grabar", 4, 1));
-		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "reloj")),"R5","Abrir audio", 5, 1));
-		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "celular")),"R6","Activar GPS", 6, 1));
-		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("llevar", "cartera")),"R7","Grabar", 7, 1));
-		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("robar", "vehiculo")),"R8","Llamar familiar", 8, 1));
-		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("robar", "moto")),"R9","Llamar familiar", 9, 1));
-		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("robar", "bicicleta")),"R10","Grabar", 10, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("ayudar", "robar")),"R1a",GPS, 1, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("ayudar", "robar")),"R1b",LLAMAR_FAM, 1, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("ayudar", "robar")),"R1c",GRABAR, 1, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("socorro", "ladron")),"R2a",GPS, 2, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("socorro", "ladron")),"R2b",LLAMAR_FAM, 2, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("socorro", "ladron")),"R2c",GRABAR, 2, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("auxilio", "secuestrar")),"R3a",GPS, 3, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("auxilio", "secuestrar")),"R3b",LLAMAR_FAM, 3, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("auxilio", "secuestrar")),"R3c",GRABAR, 3, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "billetera")),"R4a",GPS, 4, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "billetera")),"R4b",LLAMAR_FAM, 4, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "billetera")),"R4c",GRABAR, 4, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "reloj")),"R5a",GPS, 5, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "reloj")),"R5b",LLAMAR_FAM, 5, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "reloj")),"R5c",GRABAR, 5, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "celular")),"R6a",GPS, 6, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "celular")),"R6b",LLAMAR_FAM, 6, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "celular")),"R6c",GRABAR, 6, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("llevar", "cartera")),"R7a",GPS, 7, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("llevar", "cartera")),"R7b",LLAMAR_FAM, 7, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("llevar", "cartera")),"R7c",GRABAR, 7, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("robar", "vehiculo")),"R8a",GPS, 8, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("robar", "vehiculo")),"R8b",LLAMAR_FAM, 8, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("robar", "vehiculo")),"R8c",GRABAR, 8, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("robar", "moto")),"R9a",GPS, 9, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("robar", "moto")),"R9b",LLAMAR_FAM, 9, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("robar", "moto")),"R9c",GRABAR, 9, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("robar", "bicicleta")),"R10a",GPS, 10, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("robar", "bicicleta")),"R10b",LLAMAR_FAM, 10, 1));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("robar", "bicicleta")),"R10c",GRABAR, 10, 1));
 		
 		//Hechos delictivos Comercio y hogar
-		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "toda", "dinero")),"R11","Llamar 911", 11, 2));
+		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "toda", "dinero")),"R11","Llamar ", 11, 2));
 		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("abrir", "caja", "disparar")),"R12","Generar audio", 12, 2));
 		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("dar", "dinero")),"R13","Coordenada GPS", 13, 2));
 		retorno.add(new Regla(new ArrayList<String>(Arrays.asList("todos", "suelo")),"R14","Activar camara", 14, 2));
@@ -113,4 +143,5 @@ public class Regla implements Comparable{
 		
 		return retorno;
 	}
+	
 }

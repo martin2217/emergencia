@@ -12,6 +12,7 @@ public class BaseDeConocimientos {
 	// Memoria de trabajo
 	public Set<String> palabrasEncontradas;
 	public Set<Regla> reglasActivadas;
+	public Set<String> accionesRealizadas;
 	
 	// Memoria de producciones
 	public HashMap<String, String> palabrasAEncontrar;
