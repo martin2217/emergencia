@@ -138,7 +138,7 @@ public class Inicio {
 						panelTextoMemoria.setText(maquinaInferencia.palabrasEncontradas());
 						
 						// Ejecutar la Maquina de Inferencia
-						maquinaInferencia.ejecutar();
+						maquinaInferencia.ejecutar(2);
 					}
 					e.consume();
 				}
@@ -197,6 +197,7 @@ public class Inicio {
 				maquinaInferencia.reiniciar();
 				panelTextoMemoria.setText("");
 				ingresoTexto.setText("");
+				//log.setText("");
 			}
 		});
 

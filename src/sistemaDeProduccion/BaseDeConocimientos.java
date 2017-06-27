@@ -12,7 +12,6 @@ public class BaseDeConocimientos {
 	// Memoria de trabajo
 	public Set<String> palabrasEncontradas;
 	public Set<Regla> reglasActivadas;
-	public Set<String> accionesRealizadas;
 	
 	// Memoria de producciones
 	public HashMap<String, String> palabrasAEncontrar;
@@ -27,14 +26,13 @@ public class BaseDeConocimientos {
 	}
 	
 	private void inicializar(){
-		// TODO Palabras a matchear - COMPLETAR
+		// TODO Palabras a matchear
 		palabrasAEncontrar= new LinkedHashMap<String, String>();
 		reglas=Regla.inicializarReglas();
 		Collections.sort(reglas);
 		cargarPalabrasAEncontrar();
 	}
 	public void reiniciar(){
-		//palabrasAEncontrar= new LinkedHashMap<String, String>();
 		palabrasEncontradas = new LinkedHashSet<String>();
 		reglasActivadas = new LinkedHashSet<Regla>();
 	}
