@@ -4,5 +4,6 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre6"/>
 	<classpathentry kind="lib" path="res/jazzy-core-0.5.2.jar"/>
 	<classpathentry kind="lib" path="res/jortho.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/PatrulleroIA"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

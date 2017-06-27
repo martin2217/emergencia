@@ -29,6 +29,7 @@ import sistemaDeProduccion.Regla;
 
 import correccion.JazzySpellChecker;
 import correccion.Util;
+import frsf.cidisi.exercise.patrullero.search.PatrulleroAgenteMain;
 
 import normalizador.Normal;
 
@@ -208,6 +209,10 @@ public class Inicio {
 	
 	public static void ejecutarRegla(Regla regla){
 		log("Regla ejecutada: "+ regla.toString());
+		String nodoPatrullero = "1";
+		String nodoIncidente = "21";
+		// Sacar comentario para conexión con TP1
+		//PatrulleroAgenteMain.ejecutarTP2(nodoPatrullero, nodoIncidente);
 	}
 	
 	public static void log(String cadena){
